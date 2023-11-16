@@ -28,7 +28,8 @@ def test():
 def callback():
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
-
+    line_bot_api.push_message(user_id, messages=TextSendMessage(text="callback"))
+    
     # get request body as text
     body = request.get_data(as_text=True)
     app.logger.info("Request body: " + body)
@@ -57,5 +58,6 @@ def main():
 
 if __name__ == "__main__":
 #    app.run()
+    print("start")    
     port = int(os.getenv("PORT", 5003))
     app.run(host="0.0.0.0", port=port, debug=True)
