@@ -19,7 +19,6 @@ line_bot_api = LineBotApi("iT+S9ZKJKWA5xn/a2TPFPEK7dYHCecSIlMLtXrDR7xCsUQlEKWNxk
 handler = WebhookHandler("aed3ff4a3fd4b92220c0d32d1c61c517")
 user_id = "U560fe3d60be5ed458afde024c2012d80"
 
-
 @app.route("/")
 def test():
     return "SUCCESS"
@@ -45,9 +44,12 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    line_bot_api.push_message(user_id, messages=TextSendMessage(text="悲しいです...。"))
     line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=event.message.text))
+    
+
 @app.route("/push")
 def main():
     line_bot_api.push_message(user_id, messages=TextSendMessage(text="悲しいです...。"))
