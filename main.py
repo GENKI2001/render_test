@@ -43,9 +43,9 @@ def callback():
     return 'SUCCESS'
 
 
-# @handler.add(MessageEvent, message=TextMessage)
-# def handle_message(event):
-#     pass
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    line_bot_api.push_message(user_id, messages=TextSendMessage(text="がんばります"))
     
 
 @app.route("/push")
