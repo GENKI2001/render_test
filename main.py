@@ -45,7 +45,7 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    line_bot_api.push_message(user_id, messages=TextSendMessage(text=e.message.text))
+    pass
     
 
 @app.route("/push")
