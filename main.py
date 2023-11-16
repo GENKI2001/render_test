@@ -43,9 +43,9 @@ def callback():
     return 'SUCCESS'
 
 
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
-    pass
+# @handler.add(MessageEvent, message=TextMessage)
+# def handle_message(event):
+#     pass
     
 
 @app.route("/push")
